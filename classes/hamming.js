@@ -95,6 +95,15 @@ class HammingCode {
 
     return errorPosition === 0;
   }
+//для того щоб порахувати коефіцієнт надмірності коду хеммінга
+  static calculateRedundancy(dataLength) {
+    if (typeof dataLength !== 'number' || dataLength <= 0) {
+        throw Error("calculateRedundancy: input must be positive number");
+    }
+    const totalBits = dataLength + Math.ceil(Math.log2(dataLength)) + 1;
+    return (totalBits - dataLength) / totalBits;
+}
+
 }
 
 module.exports = HammingCode;

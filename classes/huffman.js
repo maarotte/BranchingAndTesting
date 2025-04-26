@@ -89,6 +89,15 @@ class HuffmanCode {
 
         return decompressedData;
     }
+//для того щоб порахувати ефективність стиснення у відсотках
+    static calculateEfficiency(originalData, compressedData) {
+        const originalBits = originalData.length * 8; //кожен символ займає 8 біт
+        const compressedBits = compressedData.length;
+        const efficiency = ((originalBits - compressedBits) / originalBits) * 100;
+        return efficiency.toFixed(2); //відсоток із 2 знаками після коми
+    }
+    
+
 }
 
 module.exports = HuffmanCode;
